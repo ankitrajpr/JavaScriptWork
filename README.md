@@ -1,2 +1,2 @@
 # JavaScriptWork
-JavaScript WOrk
+JavaScript Work Learning Again
