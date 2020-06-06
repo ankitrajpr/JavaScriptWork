@@ -1,5 +1,5 @@
-let gradeStudent = function (score, possibleScore){
-        let percent = ( score / possibleScore ) * 100
+const gradeStudent = function (score, possibleScore){ //const instead of let because it is referenced and not reassinged quickly.
+        const percent = ( score / possibleScore ) * 100
         let gradeResult = '';
 
         if (percent >= 90 ){
@@ -19,5 +19,5 @@ let gradeStudent = function (score, possibleScore){
 
 }
 
-let result = gradeStudent(17, 20)
+const result = gradeStudent(17, 20)
 console.log(result)
