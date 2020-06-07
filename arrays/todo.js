@@ -68,6 +68,7 @@ const getThingsToDo = function(todosArray){
 
     return todosArray.filter(function (todosArray, index){
        
+        // the below is error because Completed is a boolean and toLowerCase doesn't work with such datatype.
         /* const isBodyWatch = todosArray.Completed.toLowerCase().includes('false')
         return isBodyWatch */
         return todosArray.Completed === false
