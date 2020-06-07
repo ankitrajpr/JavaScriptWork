@@ -38,13 +38,13 @@ const todosArray = [
     Completed: true
 }, {
     text: 'Clean Kitchen',
-    Completed: true
+    Completed: false
 }, {
     text: 'Buy Food',
     Completed: true
 }, {
     text: 'Do Work',
-    Completed: true
+    Completed: false
 }, {
     text: 'Exercise Files',
     Completed: true
@@ -63,3 +63,17 @@ const deleteTodo = function (todosArray, todoText) {
 
 deleteTodo(todosArray, 'buy food')
 console.log(todosArray)
+
+const getThingsToDo = function(todosArray){
+
+    return todosArray.filter(function (todosArray, index){
+       
+        /* const isBodyWatch = todosArray.Completed.toLowerCase().includes('false')
+        return isBodyWatch */
+        return todosArray.Completed === false
+        
+    })
+
+}
+
+console.log(getThingsToDo(todosArray))
