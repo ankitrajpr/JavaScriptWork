@@ -77,3 +77,4 @@ const getThingsToDo = function(todosArray){
 }
 
 console.log(getThingsToDo(todosArray))
+
