@@ -29,3 +29,37 @@ for (let count = 0; count < todos.length ;count ++){
     const todo = todos[count]
     console.log(`${num}. ${todo}`)
 }
+
+
+
+const todosArray = [
+{
+    text: 'Order cat food',
+    Completed: true
+}, {
+    text: 'Clean Kitchen',
+    Completed: true
+}, {
+    text: 'Buy Food',
+    Completed: true
+}, {
+    text: 'Do Work',
+    Completed: true
+}, {
+    text: 'Exercise Files',
+    Completed: true
+}]
+
+const deleteTodo = function (todosArray, todoText) {
+    const index = todosArray.findIndex (function (todo){
+        return todo.text.toLowerCase() === todoText.toLowerCase()
+    })
+
+    //Pass by reference
+    if(index > -1){
+        todosArray.splice(index, 1)
+    }
+}
+
+deleteTodo(todosArray, 'buy food')
+console.log(todosArray)
