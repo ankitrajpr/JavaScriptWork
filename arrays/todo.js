@@ -50,7 +50,7 @@ const todosArray = [
     Completed: true
 }]
 
-const deleteTodo = function (todosArray, todoText) {
+/* const deleteTodo = function (todosArray, todoText) {
     const index = todosArray.findIndex (function (todo){
         return todo.text.toLowerCase() === todoText.toLowerCase()
     })
@@ -69,13 +69,30 @@ const getThingsToDo = function(todosArray){
     return todosArray.filter(function (todosArray, index){
        
         // the below is error because Completed is a boolean and toLowerCase doesn't work with such datatype.
-        /* const isBodyWatch = todosArray.Completed.toLowerCase().includes('false')
-        return isBodyWatch */
+        // const isBodyWatch = todosArray.Completed.toLowerCase().includes('false')
+        // return isBodyWatch 
         return todosArray.Completed === false
         
     })
 
 }
 
-console.log(getThingsToDo(todosArray))
+console.log(getThingsToDo(todosArray)) */
+
+//Filtering as per COmpleted stataus as fasle will display at top
+const sortTodos = function ( ankit) {
+    todosArray.sort(function(a,b){
+
+        //(a.text.toLowerCase() < b.text.toLowerCase() ) -> Not working
+        if((a.Completed === false && b.Completed === true) && (a.text.toLowerCase() < b.text.toLowerCase() )){
+            return -1
+        } else if ((!b.Completed && a.Completed === true) && (a.text.toLowerCase() < b.text.toLowerCase())){
+        return 1 
+        } else
+        return 0
+    })
+}
+
+sortTodos(todosArray)
+console.log(todosArray)
 
