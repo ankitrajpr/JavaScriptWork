@@ -11,6 +11,26 @@ const notes = [
     }
 ]
 
+const filters = {
+    searchText : ''
+}
+
+const renderNotes = function(notes, filters){
+    const filteredNotes = notes.filter(function ( note ){
+        return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+
+    document.querySelector('#notes').innerHTML = ''
+    //console.log(filteredNotes)
+    filteredNotes.forEach(function (p){
+        const noteElement = document.createElement('p')
+        noteElement.textContent = p.title
+        document.querySelector('#notes').appendChild(noteElement)
+    })
+}
+
+renderNotes(notes, filters)
+
 /* document.querySelector('button').addEventListener('click', function(e){
     //console.log('Button click')
     //console.log(e)
@@ -41,7 +61,9 @@ document.querySelector('#remove-all').addEventListener('click', function () {
     console.log(e.target.value)
 }) */
 document.querySelector('#search-text').addEventListener('input', function (e) {
-    console.log(e.target.value)
+    //console.log(e.target.value)
+    filters.searchText = e.target.value
+    renderNotes(notes, filters)
 })
 
 //console.log('New File loaded for a new JS')
