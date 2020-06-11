@@ -44,7 +44,7 @@ todosArray.forEach(function(todo){
     
     
 }) */
-document.querySelector('#add-todo').addEventListener('click', function (e) {
+document.querySelector('.ok#add-todo').addEventListener('click', function (e) {
     console.log('Add a new todo..')
 
 
