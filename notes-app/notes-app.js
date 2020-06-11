@@ -11,10 +11,29 @@ const notes = [
     }
 ]
 
-document.querySelector('button').addEventListener('click', function(e){
+/* document.querySelector('button').addEventListener('click', function(e){
     //console.log('Button click')
     //console.log(e)
     e.target.textContent = 'The Button was clicked'
+}) */
+
+/* document.querySelectorAll('button')[1].addEventListener('click', function(){
+    console.log('Delete all nodes')
+}) */
+
+//By ID selection of button (#)
+document.querySelector('#create-note').addEventListener('click', function (e) {
+    //console.log('Button click')
+    //console.log(e)
+    e.target.textContent = 'The Button was clicked'
+})
+
+//for class in paras
+document.querySelector('#remove-all').addEventListener('click', function () {
+    //console.log('Delete all nodes')
+    document.querySelectorAll('.note').forEach(function(e){
+        e.remove()
+    })
 })
 
 //console.log('New File loaded for a new JS')
