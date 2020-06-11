@@ -37,3 +37,10 @@ todosArray.forEach(function(todo){
     p.textContent = todo.text
     document.querySelector('body').appendChild(p)
 })
+
+//Listen for New TOdo Button
+document.querySelector('button').addEventListener('click',function (e) {
+    console.log('Add a new todo..')
+    
+    
+})

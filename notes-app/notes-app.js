@@ -11,6 +11,12 @@ const notes = [
     }
 ]
 
+document.querySelector('button').addEventListener('click', function(e){
+    //console.log('Button click')
+    //console.log(e)
+    e.target.textContent = 'The Button was clicked'
+})
+
 //console.log('New File loaded for a new JS')
 //DOM Documnet Object Model Here, Object in DOM is a JS Object
 
@@ -21,7 +27,7 @@ const notes = [
 p.remove() */
 
 //Query all and remove
-const ps = document.querySelectorAll('p')
+/* const ps = document.querySelectorAll('p')
 ps.forEach(function(p){
     p.textContent = '*********'
     //console.log(p.textContent)
@@ -32,4 +38,4 @@ ps.forEach(function(p){
 const paragraphAdd = document.createElement('p')
 paragraphAdd.textContent = "This is a new element from JS"
 //Append child
-document.querySelector('body').appendChild(paragraphAdd)
+document.querySelector('body').appendChild(paragraphAdd) */
