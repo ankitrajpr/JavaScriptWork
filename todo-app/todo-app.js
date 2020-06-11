@@ -24,7 +24,40 @@ paragraphs.forEach(function(p){
    }
 }) */
 
-const incompleteTodos = todosArray.filter(function(todo){
+const filter = {
+    searchText :''
+}
+
+const renderTodos = function(todosArray, filter){
+    const filteredNotes = todosArray.filter(function(todo){
+        //console.log(todo.text.toLowerCase().includes(filter.searchText.toLowerCase()))
+        return todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
+
+    })
+
+    const incompleteTodos = filteredNotes.filter(function(valuefalse){
+        return !valuefalse.Completed
+    })
+
+    document.querySelector('#todos').innerHTML = ''
+
+    const summary = document.createElement('h2')
+    summary.textContent = `You have ${incompleteTodos.length} todos left!`
+    document.querySelector('#todos').appendChild(summary)
+
+    filteredNotes.forEach(function (todo){
+        const p = document.createElement('p')
+        p.textContent = todo.text
+        document.querySelector('#todos').appendChild(p)
+    })
+    
+
+
+}
+
+renderTodos(todosArray, filter)
+
+ /* const incompleteTodos = todosArray.filter(function(todo){
     return todo.Completed === false
 })
 
@@ -36,7 +69,7 @@ todosArray.forEach(function(todo){
     const p = document.createElement('p')
     p.textContent = todo.text
     document.querySelector('body').appendChild(p)
-})
+}) */
 
 //Listen for New TOdo Button
 /* document.querySelector('button').addEventListener('click',function (e) {
@@ -53,3 +86,11 @@ document.querySelector('.ok#add-todo').addEventListener('click', function (e) {
 document.querySelector('#new-todo-text').addEventListener('input', function(e){
     console.log(e.target.value)
 })
+
+document.querySelector('#search-text').addEventListener('input', function(e){
+
+    filter.searchText = e.target.value
+    renderTodos(todosArray,filter)
+
+})
+
