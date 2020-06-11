@@ -49,3 +49,7 @@ document.querySelector('.ok#add-todo').addEventListener('click', function (e) {
 
 
 })
+
+document.querySelector('#new-todo-text').addEventListener('input', function(e){
+    console.log(e.target.value)
+})

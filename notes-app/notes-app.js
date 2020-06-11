@@ -36,6 +36,14 @@ document.querySelector('#remove-all').addEventListener('click', function () {
     })
 })
 
+//chnage event filter when moving away from input in html
+/* document.querySelector('#search-text').addEventListener('change',function(e){
+    console.log(e.target.value)
+}) */
+document.querySelector('#search-text').addEventListener('input', function (e) {
+    console.log(e.target.value)
+})
+
 //console.log('New File loaded for a new JS')
 //DOM Documnet Object Model Here, Object in DOM is a JS Object
 
