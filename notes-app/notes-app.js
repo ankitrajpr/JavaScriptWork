@@ -49,12 +49,12 @@ document.querySelector('#create-note').addEventListener('click', function (e) {
 })
 
 //for class in paras
-document.querySelector('#remove-all').addEventListener('click', function () {
+/* document.querySelector('#remove-all').addEventListener('click', function () {
     //console.log('Delete all nodes')
     document.querySelectorAll('.note').forEach(function(e){
         e.remove()
     })
-})
+}) */
 
 //chnage event filter when moving away from input in html
 /* document.querySelector('#search-text').addEventListener('change',function(e){
@@ -65,6 +65,8 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
     filters.searchText = e.target.value
     renderNotes(notes, filters)
 })
+
+
 
 //console.log('New File loaded for a new JS')
 //DOM Documnet Object Model Here, Object in DOM is a JS Object
