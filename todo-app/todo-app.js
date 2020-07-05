@@ -77,7 +77,8 @@ todosArray.forEach(function(todo){
     
     
 }) */
-document.querySelector('.ok#add-todo').addEventListener('click', function (e) {
+
+/* document.querySelector('.ok#add-todo').addEventListener('click', function (e) {
     console.log('Add a new todo..')
 
 
@@ -85,12 +86,24 @@ document.querySelector('.ok#add-todo').addEventListener('click', function (e) {
 
 document.querySelector('#new-todo-text').addEventListener('input', function(e){
     console.log(e.target.value)
-})
+}) */
 
 document.querySelector('#search-text').addEventListener('input', function(e){
 
     filter.searchText = e.target.value
     renderTodos(todosArray,filter)
 
+})
+
+//Form changes
+document.querySelector('#new-todo').addEventListener('submit', function(e){
+    e.preventDefault()
+    todosArray.push({
+        text: e.target.elements.text.value,
+        Completed:false
+    })
+
+    renderTodos(todosArray, filter)
+    e.target.elements.text.value=''
 })
 

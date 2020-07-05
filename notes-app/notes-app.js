@@ -66,7 +66,13 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
     renderNotes(notes, filters)
 })
 
-
+//Form id Changes to not got for full refresh
+document.querySelector('#name-form').addEventListener('submit', function(e){
+    e.preventDefault()  //Not refresh page
+    //console.log(e)
+    console.log(e.target.elements.firstName.value)
+    e.target.elements.firstName.value = ''
+})
 
 //console.log('New File loaded for a new JS')
 //DOM Documnet Object Model Here, Object in DOM is a JS Object
