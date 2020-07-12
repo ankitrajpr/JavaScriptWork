@@ -15,6 +15,33 @@ const filters = {
     searchText : ''
 }
 
+/* const user = {
+    name: 'Ankit',
+    age: 27
+}
+
+//Javascript object notation --> convert objects to string
+//Stringfy returns string
+const userJSON = JSON.stringify(user)
+console.log(userJSON)
+
+localStorage.setItem('user',userJSON) */
+
+//Now Reading localstorage value from Firefox
+const userJSON = localStorage.getItem('user')
+
+//parse is necessary to convert JSON data into Javascript obj,. if we need to read localstorge
+const user = JSON.parse(userJSON)
+
+console.log(`${user.name} is ${user.age}`)
+
+//localStorage.setItem('location','Pune')
+
+//console.log(localStorage.getItem('location'))
+//localStorage.removeItem('location')
+
+//localStorage.clear()
+
 const renderNotes = function(notes, filters){
     const filteredNotes = notes.filter(function ( note ){
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
