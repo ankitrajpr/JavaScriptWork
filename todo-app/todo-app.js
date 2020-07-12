@@ -25,15 +25,24 @@ paragraphs.forEach(function(p){
 }) */
 
 const filter = {
-    searchText :''
+    searchText :'',
+    hideCompleted : false
 }
 
 const renderTodos = function(todosArray, filter){
-    const filteredNotes = todosArray.filter(function(todo){
+    let filteredNotes = todosArray.filter(function(todo){
         //console.log(todo.text.toLowerCase().includes(filter.searchText.toLowerCase()))
         return todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
 
     })
+
+    filteredNotes = filteredNotes.filter(function(todo){
+        if(filter.hideCompleted){
+            return todo.Completed === false
+        } else {
+            return true
+        }
+    }) 
 
     const incompleteTodos = filteredNotes.filter(function(valuefalse){
         return !valuefalse.Completed
@@ -105,5 +114,10 @@ document.querySelector('#new-todo').addEventListener('submit', function(e){
 
     renderTodos(todosArray, filter)
     e.target.elements.text.value=''
+})
+
+document.querySelector('#hide-completed').addEventListener('change', function(e){
+    filter.hideCompleted = e.target.checked
+    renderTodos(todosArray, filter)
 })
 
