@@ -66,9 +66,9 @@ document.querySelector('#search-text').addEventListener('input', function (e) {
     renderNotes(notes, filters)
 })
 
-document.querySelector('#for-fun').addEventListener('change', function(e){
+/* document.querySelector('#for-fun').addEventListener('change', function(e){
     console.log(e.target.checked)
-})
+}) */
 
 //Form id Changes to not got for full refresh
 /* document.querySelector('#name-form').addEventListener('submit', function(e){

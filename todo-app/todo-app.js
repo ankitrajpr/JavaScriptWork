@@ -30,19 +30,26 @@ const filter = {
 }
 
 const renderTodos = function(todosArray, filter){
-    let filteredNotes = todosArray.filter(function(todo){
+    //let filteredNotes = todosArray.filter(function(todo){
+    const filteredNotes = todosArray.filter(function (todo) {
+        //For Hide COmpleted different method
+        const searchTextMatch = todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
+        const hideCompletedMatch = !filter.hideCompleted || !todo.Completed
+
+        return searchTextMatch && hideCompletedMatch
         //console.log(todo.text.toLowerCase().includes(filter.searchText.toLowerCase()))
-        return todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
+        //return todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
 
     })
 
-    filteredNotes = filteredNotes.filter(function(todo){
-        if(filter.hideCompleted){
+    /* filteredNotes = filteredNotes.filter(function(todo){
+        return filter.hideCompleted === false || !todo.Completed
+        /* if(filter.hideCompleted){
             return todo.Completed === false
         } else {
             return true
-        }
-    }) 
+        } 
+    })  */
 
     const incompleteTodos = filteredNotes.filter(function(valuefalse){
         return !valuefalse.Completed
