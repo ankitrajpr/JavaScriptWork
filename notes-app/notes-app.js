@@ -1,5 +1,5 @@
-const notes = [
-    {
+let notes = [
+    /* {
         title: 'My next Trip',
         body: 'I would like to go to Greece'
     }, {
@@ -8,8 +8,14 @@ const notes = [
     }, {
         title: 'Home office Set Up',
         body: 'Get a New Seat'
-    }
+    } */
 ]
+
+const notesJSON = localStorage.getItem('notes')
+
+if(notesJSON !== null){
+    notes = JSON.parse(notesJSON)
+}
 
 const filters = {
     searchText : ''
@@ -28,12 +34,12 @@ console.log(userJSON)
 localStorage.setItem('user',userJSON) */
 
 //Now Reading localstorage value from Firefox
-const userJSON = localStorage.getItem('user')
+/* const userJSON = localStorage.getItem('user')
 
 //parse is necessary to convert JSON data into Javascript obj,. if we need to read localstorge
 const user = JSON.parse(userJSON)
 
-console.log(`${user.name} is ${user.age}`)
+console.log(`${user.name} is ${user.age}`) */
 
 //localStorage.setItem('location','Pune')
 
@@ -51,7 +57,14 @@ const renderNotes = function(notes, filters){
     //console.log(filteredNotes)
     filteredNotes.forEach(function (p){
         const noteElement = document.createElement('p')
-        noteElement.textContent = p.title
+
+        if(p.title.length > 0){
+            noteElement.textContent = p.title
+        }
+        else{
+            noteElement.textContent = 'UnNmed Note'
+        }
+        //noteElement.textContent = p.title
         document.querySelector('#notes').appendChild(noteElement)
     })
 }
@@ -72,7 +85,14 @@ renderNotes(notes, filters)
 document.querySelector('#create-note').addEventListener('click', function (e) {
     //console.log('Button click')
     //console.log(e)
-    e.target.textContent = 'The Button was clicked'
+    //e.target.textContent = 'The Button was clicked'
+    notes.push({
+        title: '',
+        body:''
+    })
+
+    localStorage.setItem('notes',JSON.stringify(notes))
+    renderNotes(notes, filters)
 })
 
 //for class in paras

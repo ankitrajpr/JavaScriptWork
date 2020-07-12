@@ -1,5 +1,5 @@
-const todosArray = [
-    {
+let todosArray = [
+    /* {
         text: 'Order cat food',
         Completed: false
     }, {
@@ -14,7 +14,7 @@ const todosArray = [
     }, {
         text: 'Exercise Files',
         Completed: true
-    }]
+    } */]
 
 /* const paragraphs = document.querySelectorAll('p')
 
@@ -23,6 +23,12 @@ paragraphs.forEach(function(p){
        p.remove()
    }
 }) */
+
+const todosJSON = localStorage.getItem('todosArray')
+
+if( todosJSON  !== null){
+    todosArray = JSON.parse(todosJSON)
+}
 
 const filter = {
     searchText :'',
@@ -118,7 +124,7 @@ document.querySelector('#new-todo').addEventListener('submit', function(e){
         text: e.target.elements.text.value,
         Completed:false
     })
-
+    localStorage.setItem('todosArray', JSON.stringify(todosArray))
     renderTodos(todosArray, filter)
     e.target.elements.text.value=''
 })
