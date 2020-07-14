@@ -1,4 +1,4 @@
-let notes = [
+/* let notes = [
     /* {
         title: 'My next Trip',
         body: 'I would like to go to Greece'
@@ -9,13 +9,17 @@ let notes = [
         title: 'Home office Set Up',
         body: 'Get a New Seat'
     } */
-]
+/* ] */
 
-const notesJSON = localStorage.getItem('notes')
+const notes = getSavedNotes()
+
+
+
+/* const notesJSON = localStorage.getItem('notes')
 
 if(notesJSON !== null){
     notes = JSON.parse(notesJSON)
-}
+} */
 
 const filters = {
     searchText : ''
@@ -48,7 +52,7 @@ console.log(`${user.name} is ${user.age}`) */
 
 //localStorage.clear()
 
-const renderNotes = function(notes, filters){
+/* const renderNotes = function(notes, filters){
     const filteredNotes = notes.filter(function ( note ){
         return note.title.toLowerCase().includes(filters.searchText.toLowerCase())
     })
@@ -56,18 +60,20 @@ const renderNotes = function(notes, filters){
     document.querySelector('#notes').innerHTML = ''
     //console.log(filteredNotes)
     filteredNotes.forEach(function (p){
-        const noteElement = document.createElement('p')
+        /* const noteElement = document.createElement('p')
 
         if(p.title.length > 0){
             noteElement.textContent = p.title
         }
         else{
             noteElement.textContent = 'UnNmed Note'
-        }
+        } */
+
+        /* const noteElement = generateNoteDOM(p)
         //noteElement.textContent = p.title
         document.querySelector('#notes').appendChild(noteElement)
     })
-}
+} */
 
 renderNotes(notes, filters)
 
@@ -91,7 +97,8 @@ document.querySelector('#create-note').addEventListener('click', function (e) {
         body:''
     })
 
-    localStorage.setItem('notes',JSON.stringify(notes))
+    //localStorage.setItem('notes',JSON.stringify(notes))
+    saveNotes(notes)
     renderNotes(notes, filters)
 })
 
