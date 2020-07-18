@@ -1,4 +1,4 @@
-let todosArray = [
+//let todosArray = [
     /* {
         text: 'Order cat food',
         Completed: false
@@ -14,7 +14,7 @@ let todosArray = [
     }, {
         text: 'Exercise Files',
         Completed: true
-    } */]
+    } *///]
 
 /* const paragraphs = document.querySelectorAll('p')
 
@@ -24,18 +24,20 @@ paragraphs.forEach(function(p){
    }
 }) */
 
-const todosJSON = localStorage.getItem('todosArray')
+/* const todosJSON = localStorage.getItem('todosArray')
 
 if( todosJSON  !== null){
     todosArray = JSON.parse(todosJSON)
-}
+} */
+
+let todosArray = getSavedTodos()
 
 const filter = {
     searchText :'',
     hideCompleted : false
 }
 
-const renderTodos = function(todosArray, filter){
+/* const renderTodos = function(todosArray, filter){
     //let filteredNotes = todosArray.filter(function(todo){
     const filteredNotes = todosArray.filter(function (todo) {
         //For Hide COmpleted different method
@@ -57,7 +59,7 @@ const renderTodos = function(todosArray, filter){
         } 
     })  */
 
-    const incompleteTodos = filteredNotes.filter(function(valuefalse){
+    /*const incompleteTodos = filteredNotes.filter(function(valuefalse){
         return !valuefalse.Completed
     })
 
@@ -75,7 +77,7 @@ const renderTodos = function(todosArray, filter){
     
 
 
-}
+} */
 
 renderTodos(todosArray, filter)
 
@@ -124,7 +126,7 @@ document.querySelector('#new-todo').addEventListener('submit', function(e){
         text: e.target.elements.text.value,
         Completed:false
     })
-    localStorage.setItem('todosArray', JSON.stringify(todosArray))
+    saveTodos(todosArray)
     renderTodos(todosArray, filter)
     e.target.elements.text.value=''
 })
