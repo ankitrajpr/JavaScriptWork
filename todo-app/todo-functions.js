@@ -18,10 +18,13 @@ const renderTodos = function (todosArray, filter) {
         //For Hide COmpleted different method
         const searchTextMatch = todo.text.toLowerCase().includes(filter.searchText.toLowerCase())
         const hideCompletedMatch = !filter.hideCompleted || !todo.Completed
-
+        //debugger
         return searchTextMatch && hideCompletedMatch
 
     })
+
+    //for debug in JS
+    //debugger
 
     const incompleteTodos = filteredNotes.filter(function (valuefalse) {
         return !valuefalse.Completed
