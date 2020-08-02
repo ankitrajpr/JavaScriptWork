@@ -93,6 +93,7 @@ document.querySelector('#create-note').addEventListener('click', function (e) {
     //console.log(e)
     //e.target.textContent = 'The Button was clicked'
     notes.push({
+        id: uuidv4(),
         title: '',
         body:''
     })
