@@ -43,7 +43,7 @@ const renderTodos = function (todosArray, filter) {
 
 //Get the DOM elements to a individual note
 const generateTodoDOM = function(todo){
-    const todoEl = document.querySelector('div')
+    const todoEl = document.createElement('div')
     const checbox = document.createElement('input')
     const todoText = document.createElement('span')
     const removeButton = document.createElement('button')
