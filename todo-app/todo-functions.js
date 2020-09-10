@@ -23,8 +23,20 @@ const removeToDoApp = function(id){
         todosArray.splice(removeToDo, 1)
     }
     
+}
 
-    
+//Toggle for Checkbox in Fly --> means can do from GUI
+const toggleTodo = function(id) {
+    const todo = todosArray.find(function(todo){
+        return todo.id === id
+    })
+
+    if (todo !== undefined){
+        //if the constant returned above returns the find value of id
+        //Here, we are marking if this is inComplete i.e. false, set it to true
+        todo.Completed = !todo.Completed
+    }
+
 }
 
 const renderTodos = function (todosArray, filter) {
@@ -64,8 +76,13 @@ const generateTodoDOM = function(todo){
 
     //Set up todo Checkbox
     checbox.setAttribute('type','checkbox')
+    checbox.checked = todo.Completed
     todoEl.appendChild(checbox)
-
+    checbox.addEventListener('change',function(e){
+        toggleTodo(todo.id)
+        saveTodos(todosArray)
+        renderTodos(todosArray, filter)
+    })
 
     //Set up thetodo text
     todoText.textContent = todo.text
