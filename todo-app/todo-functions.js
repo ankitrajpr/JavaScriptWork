@@ -13,6 +13,20 @@ const saveTodos = function(todosArray){
     localStorage.setItem('todosArray', JSON.stringify(todosArray))
 }
 
+//Remove TodoApp
+const removeToDoApp = function(id){
+    const removeToDo = todosArray.findIndex(function(todoArray){
+        return todoArray.id === id
+    })
+
+    if(removeToDo > -1){
+        todosArray.splice(removeToDo, 1)
+    }
+    
+
+    
+}
+
 const renderTodos = function (todosArray, filter) {
     const filteredNotes = todosArray.filter(function (todo) {
         //For Hide COmpleted different method
@@ -60,6 +74,11 @@ const generateTodoDOM = function(todo){
     //Set up the remove button
     removeButton.textContent = 'x'
     todoEl.appendChild(removeButton)
+    removeButton.addEventListener('click', function(e){
+        removeToDoApp(todo.id)
+        saveTodos(todosArray)
+        renderTodos(todosArray, filter)
+    })
 
     return todoEl
 
