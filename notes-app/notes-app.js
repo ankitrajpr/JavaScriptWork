@@ -92,15 +92,19 @@ document.querySelector('#create-note').addEventListener('click', function (e) {
     //console.log('Button click')
     //console.log(e)
     //e.target.textContent = 'The Button was clicked'
+    const id = uuidv4()
+
     notes.push({
-        id: uuidv4(),
+        id: id,
         title: '',
         body:''
     })
 
     //localStorage.setItem('notes',JSON.stringify(notes))
     saveNotes(notes)
-    renderNotes(notes, filters)
+    //renderNotes(notes, filters)
+    //location.assign('/note.html')
+    location.assign(`/note.html#${id}`) //Template String
 })
 
 //for class in paras

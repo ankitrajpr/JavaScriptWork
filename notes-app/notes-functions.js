@@ -30,7 +30,7 @@ const saveNotes = function(notes){
 //Generate the DOM structure for a Note
 const generateNoteDOM = function(note){
     const noteElement = document.createElement('div')
-    const textElement = document.createElement('span')
+    const textElement = document.createElement('a')
     const button = document.createElement('button')
 
     button.textContent = 'x'
@@ -48,6 +48,7 @@ const generateNoteDOM = function(note){
     else {
         textElement.textContent = 'UnNmed Note'
     }
+    textElement.setAttribute('href',`/note.html#${note.id}`)
     noteElement.appendChild(textElement)
     
     return noteElement
